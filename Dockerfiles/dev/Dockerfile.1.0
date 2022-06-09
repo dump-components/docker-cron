@@ -1,0 +1,4 @@
+FROM dumptec/cron:1.0-base
+
+## Install development dependencies
+RUN apt install -y procps

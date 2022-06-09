@@ -1,0 +1,1 @@
+* * * * * dump cd /app && echo "Dev cron test as non root user | $(date)" > /proc/1/fd/1 2>&1
