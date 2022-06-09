@@ -1,4 +1,4 @@
-FROM dumptec/php-fpm:8.1-base
+FROM dumptec/php-fpm:8.1-dev
 
 WORKDIR /app
 RUN apt install -y cron
