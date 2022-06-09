@@ -1,0 +1,16 @@
+FROM dumptec/php-fpm:8.1-base
+
+WORKDIR /app
+RUN apt install -y cron
+
+## Copy entrypoint to /home/cron folder
+COPY --chown=dump:dump ./data/cron.sh /home/dump/
+
+## Copy default schedule file to /home/cron folder
+COPY --chown=0:0 ./data/schedule /etc/cron.d/
+
+## Give cron permissions
+RUN chmod +x /home/dump/cron.sh && chmod u+s /usr/sbin/cron
+
+## Run entrypoint as cron user
+CMD [ "/home/dump/cron.sh"]
