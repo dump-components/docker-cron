@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+
+    cron:
+        image: dumptec/cron:1.0-dev
+        build: 
+            context: .
+        container_name: cron
+        working_dir: /app
+        restart: on-failure
+        user: dump
+        logging:
+            options:
+                max-size: "50m"
+                max-file: "3"
+        volumes:
+            - ./app:/app
+
